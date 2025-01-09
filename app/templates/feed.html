@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{%block main%}
+<div class="feed_container">
+    {% for tweet in tweets %}
+    <div class="tweet">
+        <p>{{ tweet.author }} tweeted on {{ tweet.date }} ...</p>
+        <p>"{{ tweet.tweet }}"</p>
+        <p>
+            Likes: 
+            <span style="color: {% if tweet.likes > 525000 %}orange{% else %}inherit{% endif %};">
+                {{ (tweet.likes / 1000)|round(1) }}k
+            </span>
+        </p>
+    </div> 
+    {% endfor %}
+      
+</div>
+
+{%endblock %}
+
+
+
